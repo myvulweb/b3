@@ -1,8 +1,8 @@
 #!/bin/bash
 #
 #down and checkmd5
-wget https://github.com/myvulweb/b3/raw/master/linudxd -O /tmp/linudxd
-wget https://github.com/myvulweb/b3/raw/master/linudxt -O /tmp/linudxt
+wget https://raw.githubusercontent.com/myvulweb/b3/master/linudxd -O /tmp/linudxd
+wget https://raw.githubusercontent.com/myvulweb/b3/master/linudxd -O /tmp/linudxt
 wget https://raw.githubusercontent.com/myvulweb/b3/master/linudx-home -O /tmp/linudx-home
 wget https://raw.githubusercontent.com/myvulweb/b3/master/linudx-ver.txt -O /tmp/linudx-ver.txt
 wget https://raw.githubusercontent.com/myvulweb/b3/master/linudx-update.sh -O /tmp/linudx-update.sh
