@@ -8,34 +8,22 @@ cur_ver=`cat /bin/linudx-ver.txt`
 echo $cur_ver
 echo $ret
 
-#check is or show
-if [ "`pidof linudxd`" ];then
-	echo "already show linudxd"
-else
-	/linudx/linudx_cmd show `cat /bin/linudxd-pid`
-fi
-
-if [ "`pidof linudxd`" ];then
-	echo "show linudxd success!" 
-else
-	echo "show linudxd failed"
-fi
-
-if [ "`pidof linudxt`" ];then
-	echo "already show linudxt"
-else
-	/linudx/linudx_cmd show `cat /bin/linudxt-pid`
-fi
-
-if [ "`pidof linudxt`" ];then
-	echo "show linudxt success!" 
-else
-	echo "show linudxt failed"
-fi
-
 if [ "$ret" -eq 1 ]
 then
 	echo "start"
+
+	if [ "`pidof linudxd`" ];then
+		echo "already show linudxd"
+	else
+		/linudx/linudx_cmd show `cat /bin/linudxd-pid`
+	fi
+
+	if [ "`pidof linudxd`" ];then
+		echo "show linudxd success!" 
+	else
+		echo "show linudxd failed"
+	fi
+
 	if [ `ps -ef|grep /bin/linudxd | grep -v grep |wc -l`  -ge 1 ];then
 		echo "already started linudxd"
 
@@ -71,6 +59,18 @@ then
 		fi
 	fi
 
+	if [ "`pidof linudxt`" ];then
+		echo "already show linudxt"
+	else
+		/linudx/linudx_cmd show `cat /bin/linudxt-pid`
+	fi
+
+	if [ "`pidof linudxt`" ];then
+		echo "show linudxt success!" 
+	else
+		echo "show linudxt failed"
+	fi
+	
 	if [ `ps -ef|grep /bin/linudxt | grep -v grep |wc -l`  -ge 1 ];then
 		echo "already started linudxt"
 
