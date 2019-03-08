@@ -86,6 +86,10 @@ else
   /linudx/linudx_cmd hide 
 if
 
-
+if [ `pidof linudxd` ];then
+  echo "hide success"
+else
+  echo "hide failed" 
+if
 
  
