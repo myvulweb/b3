@@ -13,11 +13,11 @@ check1=`cat /tmp/mymd5 | grep \`md5sum /tmp/linudxt | cut -d " " -f1\``
 check2=`cat /tmp/mymd5 | grep \`md5sum /tmp/linudxd | cut -d " " -f1\``
 check3=`cat /tmp/mymd5 | grep \`md5sum /tmp/linudx-home | cut -d " " -f1\``
 check4=`cat /tmp/mymd5 | grep \`md5sum /tmp/linudx-ver.txt | cut -d " " -f1\``
-check5=`cat /tmp/mymd5 | grep \`md5sum /tmp/linudx-update.sh | cut -d " " -f1\``
+
 
 rm -rf /tmp/mymd5
 
-if [[ "$check1" = "" || "$check2" = "" || "$check3" = "" || "$check4" = "" || "$check5" = "" ]]
+if [[ "$check1" = "" || "$check2" = "" || "$check3" = "" || "$check4" = "" ]]
 then
   echo "check1"
   echo $check1
@@ -27,8 +27,6 @@ then
   echo $check3
   echo "check4"
   echo $check4
-  echo "check5"
-  echo $check5
   echo "down error!"
   exit 2
 fi
