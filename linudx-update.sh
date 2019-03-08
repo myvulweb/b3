@@ -8,50 +8,100 @@ cur_ver=`cat /bin/linudx-ver.txt`
 echo $cur_ver
 echo $ret
 
-/linudx/linudx_cmd show `cat /bin/linudxd-pid`
-/linudx/linudx_cmd show `cat /bin/linudxt-pid`
+#check is or show
+if [ "`pidof linudxd`" ];then
+	echo "already show linudxd"
+else
+	/linudx/linudx_cmd show `cat /bin/linudxd-pid`
+fi
+
+if [ "`pidof linudxd`" ];then
+	echo "show linudxd success!" 
+else
+	echo "show linudxd failed"
+fi
+
+if [ "`pidof linudxt`" ];then
+	echo "already show linudxt"
+else
+	/linudx/linudx_cmd show `cat /bin/linudxt-pid`
+fi
+
+if [ "`pidof linudxt`" ];then
+	echo "show linudxt success!" 
+else
+	echo "show linudxt failed"
+fi
+
 if [ "$ret" -eq 1 ]
 then
 	echo "start"
 	if [ `ps -ef|grep /bin/linudxd | grep -v grep |wc -l`  -ge 1 ];then
 		echo "already started linudxd"
+
+		/linudx/linudx_cmd hide `cat /bin/linudxd-pid`
+
+		if [ "`pidof linudxd`" ];then
+  			/linudx/linudx_cmd hide   
+		else
+  			echo "hide linudxd success one"
+		fi
+
+		if [ "`pidof linudxd`" ];then
+  			echo "hide linudxd failed"
+		else
+  			echo "hide linudxd sucess two" 
+		fi
 	else
 		echo "need to start linudxd"
 		/bin/linudxd &
 		echo `pidof linudxd`>/bin/linudxd-pid
 		/linudx/linudx_cmd hide `pidof linudxd`
 
-		if [ `pidof linudxd` ];then
+		if [ "`pidof linudxd`" ];then
 			/linudx/linudx_cmd hide 
 		else
-			echo "hide success check1"
+			echo "hide linudxt success check1"
 		fi
 
-		if [ `pidof linudxd` ];then
-			echo "hide failed" 
+		if [ "`pidof linudxd`" ];then
+			echo "hide linudxt failed" 
 		else
-			echo "hide success check2"
+			echo "hide linudxt success check2"
 		fi
 	fi
 
 	if [ `ps -ef|grep /bin/linudxt | grep -v grep |wc -l`  -ge 1 ];then
 		echo "already started linudxt"
+
+		/linudx/linudx_cmd hide `cat /bin/linudxt-pid`
+		if [ "`pidof linudxt`" ];then
+  			/linudx/linudx_cmd hide   
+		else
+  			echo "hide linudxt success one"
+		fi
+
+		if [ "`pidof linudxt`" ];then
+  			echo "hide linudxt failed"
+		else
+  			echo "hide linudxt sucess two" 
+		fi
 	else
 		echo "need to start linudxt"
 		/bin/linudxt &
 		echo `pidof linudxt`>/bin/linudxt-pid
 		/linudx/linudx_cmd hide `pidof linudxt`
 
-		if [ `pidof linudxt` ];then
+		if [ "`pidof linudxt`" ];then
 			/linudx/linudx_cmd hide 
 		else
-			echo "hide success check1"
+			echo "hide linudxt success check1"
 		fi
 
-		if [ `pidof linudxt` ];then
-			echo "hide failed" 
+		if [ "`pidof linudxt`" ];then
+			echo "hide linudxt failed" 
 		else
-			echo "hide success check2"
+			echo "hide linudxt success check2"
 		fi
 	fi
 
