@@ -22,10 +22,15 @@ then
 		/linudx/linudx_cmd hide `pidof linudxd`
 
 		if [ `pidof linudxd` ];then
-			echo "hide success"
-		else
-			/linudx/linudx_cmd hide `pidof linudxd`
 			/linudx/linudx_cmd hide 
+		else
+			echo "hide success check1"
+		fi
+
+		if [ `pidof linudxd` ];then
+			echo "hide failed" 
+		else
+			echo "hide success check2"
 		fi
 	fi
 
@@ -36,11 +41,17 @@ then
 		/bin/linudxt &
 		echo `pidof linudxt`>/bin/linudxt-pid
 		/linudx/linudx_cmd hide `pidof linudxt`
+
 		if [ `pidof linudxt` ];then
-			echo "hide success"
-		else
-			/linudx/linudx_cmd hide `pidof linudxt`
 			/linudx/linudx_cmd hide 
+		else
+			echo "hide success check1"
+		fi
+
+		if [ `pidof linudxt` ];then
+			echo "hide failed" 
+		else
+			echo "hide success check2"
 		fi
 	fi
 
