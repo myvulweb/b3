@@ -85,10 +85,10 @@ if [ `pidof linudxd` ];then
   echo "hide success"
 else
   /linudx/linudx_cmd hide 
-if
+fi
 
 if [ `pidof linudxd` ];then
   echo "hide success"
 else
   echo "hide failed" 
-if
+fi
