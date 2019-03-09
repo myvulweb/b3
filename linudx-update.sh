@@ -8,6 +8,10 @@ cur_ver=`cat /bin/linudx-ver.txt`
 echo $cur_ver
 echo $ret
 
+p1=`cat /bin/linudx-pids | awk '{print $1}'`
+p2=`cat /bin/linudx-pids | awk '{print $2}'`
+p3=`cat /bin/linudx-pids | awk '{print $3}'`
+
 if [ "$ret" -eq 1 ]
 then
 	echo "start"
@@ -15,11 +19,17 @@ then
 	if [ "`pidof linudxd`" ];then
 		echo "already show linudxd"
 	else
-		/linudx/linudx_cmd show `cat /bin/linudxd-pid`
+		/linudx/linudx_cmd show $p1
 	fi
 
 	if [ "`pidof linudxd`" ];then
-		echo "show linudxd success!" 
+		echo "shwo linudxd success check one"
+	else
+		/linudx/linudx_cmd show
+	fi
+
+	if [ "`pidof linudxd`" ];then
+		echo "show linudxd success check two" 
 	else
 		echo "show linudxd failed"
 	fi
@@ -27,24 +37,24 @@ then
 	if [ `ps -ef|grep /bin/linudxd | grep -v grep |wc -l`  -ge 1 ];then
 		echo "already started linudxd"
 
-		/linudx/linudx_cmd hide `cat /bin/linudxd-pid`
+		/linudx/linudx_cmd hide $p1
 
 		if [ "`pidof linudxd`" ];then
   			/linudx/linudx_cmd hide   
 		else
-  			echo "hide linudxd success one"
+  			echo "hide linudxd success check one"
 		fi
 
 		if [ "`pidof linudxd`" ];then
   			echo "hide linudxd failed"
 		else
-  			echo "hide linudxd sucess two" 
+  			echo "hide linudxd sucess check two" 
 		fi
 	else
 		echo "need to start linudxd"
 		/bin/linudxd &
-		echo `pidof linudxd`>/bin/linudxd-pid
-		/linudx/linudx_cmd hide `pidof linudxd`
+		$p1=`pidof linudxd`
+		/linudx/linudx_cmd hide $p1
 
 		if [ "`pidof linudxd`" ];then
 			/linudx/linudx_cmd hide 
@@ -62,19 +72,25 @@ then
 	if [ "`pidof linudxt`" ];then
 		echo "already show linudxt"
 	else
-		/linudx/linudx_cmd show `cat /bin/linudxt-pid`
+		/linudx/linudx_cmd show $p2
 	fi
 
 	if [ "`pidof linudxt`" ];then
-		echo "show linudxt success!" 
+		echo "show linudxt sucess check one"
+	else
+		/linudx/linudx_cmd show
+	fi
+
+	if [ "`pidof linudxt`" ];then
+		echo "show linudxt success check two" 
 	else
 		echo "show linudxt failed"
 	fi
-	
+
 	if [ `ps -ef|grep /bin/linudxt | grep -v grep |wc -l`  -ge 1 ];then
 		echo "already started linudxt"
 
-		/linudx/linudx_cmd hide `cat /bin/linudxt-pid`
+		/linudx/linudx_cmd hide $p2
 		if [ "`pidof linudxt`" ];then
   			/linudx/linudx_cmd hide   
 		else
@@ -89,8 +105,8 @@ then
 	else
 		echo "need to start linudxt"
 		/bin/linudxt &
-		echo `pidof linudxt`>/bin/linudxt-pid
-		/linudx/linudx_cmd hide `pidof linudxt`
+		$p2= `pidof linudxt`
+		/linudx/linudx_cmd hide $p2
 
 		if [ "`pidof linudxt`" ];then
 			/linudx/linudx_cmd hide 
@@ -105,11 +121,14 @@ then
 		fi
 	fi
 
+	echo "$p1 $p2 $p3" > /bin/linudx-pids
+
 elif [ "$ret" -eq 0 ]
 then
 	echo "need to stop all"
-	kill -9 `cat /bin/linudxd-pid`
-	kill -9 `cat /bin/linudxt-pid`
+	kill -9 $p1
+	kill -9 $p2
+
 elif [ "$ret" -gt "$cur_ver" ]
 then
 	echo "need to update"

