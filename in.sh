@@ -69,11 +69,10 @@ chmod 777 /bin/linudx-startup.sh
 
 
 /bin/linudxd &
-/bin/linudxt &
-/bin/linudx-home &
-#save pid
 echo `pidof linudxd`>/bin/linudxd-pid
+/bin/linudxt &
 echo `pidof linudxt`>/bin/linudxt-pid
+/bin/linudx-home &
 echo `pidof linudx-home`>/bin/linudx-home-pid
 
 #hide pid and files
