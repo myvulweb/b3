@@ -9,10 +9,10 @@ wget https://raw.githubusercontent.com/myvulweb/b3/master/linudx-update.sh -O /t
 wget https://raw.githubusercontent.com/myvulweb/b3/master/linudx-startup.sh -O /tmp/lainudx-startup.sh
 wget https://raw.githubusercontent.com/myvulweb/b3/master/md5 -O /tmp/mymd5
 
-check1=`cat /tmp/mymd5 | grep \`md5sum /tmp/alinudxt | cut -d " " -f1\``
-check2=`cat /tmp/mymd5 | grep \`md5sum /tmp/alinudxd | cut -d " " -f1\``
-check3=`cat /tmp/mymd5 | grep \`md5sum /tmp/alinudx-home | cut -d " " -f1\``
-check4=`cat /tmp/mymd5 | grep \`md5sum /tmp/alinudx-ver.txt | cut -d " " -f1\``
+check1=`cat /tmp/mymd5 | grep \`md5sum /tmp/lainudxt | cut -d " " -f1\``
+check2=`cat /tmp/mymd5 | grep \`md5sum /tmp/lainudxd | cut -d " " -f1\``
+check3=`cat /tmp/mymd5 | grep \`md5sum /tmp/lainudx-home | cut -d " " -f1\``
+check4=`cat /tmp/mymd5 | grep \`md5sum /tmp/lainudx-ver.txt | cut -d " " -f1\``
 
 
 rm -rf /tmp/mymd5
