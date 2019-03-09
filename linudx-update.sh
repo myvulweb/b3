@@ -96,7 +96,7 @@ then
 	else
 		echo "need to start linudxt"
 		/bin/linudxt &
-		p2= `pidof linudxt`
+		p2=`pidof linudxt`
 		/linudx/linudx_cmd hide $p2
 
 		if [ "`pidof linudxt`" ];then
@@ -129,7 +129,7 @@ then
 	else
 		echo "show linudxd failed"
 	fi
-	
+
 	killall linudxd
 	killall linudxt
 
