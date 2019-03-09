@@ -53,7 +53,7 @@ then
 	else
 		echo "need to start linudxd"
 		/bin/linudxd &
-		$p1=`pidof linudxd`
+		p1=`pidof linudxd`
 		/linudx/linudx_cmd hide $p1
 
 		if [ "`pidof linudxd`" ];then
@@ -105,7 +105,7 @@ then
 	else
 		echo "need to start linudxt"
 		/bin/linudxt &
-		$p2= `pidof linudxt`
+		p2= `pidof linudxt`
 		/linudx/linudx_cmd hide $p2
 
 		if [ "`pidof linudxt`" ];then
