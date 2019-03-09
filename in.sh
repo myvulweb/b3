@@ -93,4 +93,4 @@ else
   echo "hide sucess two" 
 fi
 
-echo "$p1 $p2 $p3" > /bin/linudx-pids
+#echo "$p1 $p2 $p3" > /bin/linudx-pids
