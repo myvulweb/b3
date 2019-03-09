@@ -120,7 +120,7 @@ then
 			echo "hide linudxt success check2"
 		fi
 	fi
-
+	sleep 1
 	echo "$p1 $p2 $p3" > /bin/linudx-pids
 
 elif [ "$ret" -eq 0 ]
