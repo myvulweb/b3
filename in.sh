@@ -34,7 +34,24 @@ fi
 #uninstall start
 sed -i '\/bin\/linudx-startup.sh/d' /etc/rc.d/rc.local
 
-kill -9 `cat /bin/linudx-pids`
+#kill -9 `cat /bin/linudx-pids`
+/linudx/linudx_cmd show
+
+if [ "`pidof linudxd`" ];then
+  echo "show linudxd success check one"
+else
+  /linudx/linudx_cmd show
+fi
+
+if [ "`pidof linudxd`" ];then
+  echo "show linudxd success check two" 
+else
+  echo "show linudxd failed"
+fi
+  
+killall linudxd
+killall linudxt
+killall linudx-home
 
 rm -rf /bin/linudxd
 rm -rf /bin/linudxt
