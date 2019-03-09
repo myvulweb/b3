@@ -87,4 +87,4 @@ else
   echo "hide success two" 
 fi
 sleep 1
-echo "$p1 $p2 $p3" > /bin/linudx-pids
+#echo "$p1 $p2 $p3" > /bin/linudx-pids
