@@ -15,9 +15,10 @@ echo $ret
 if [ "$ret" -eq 1 ]
 then
 	echo "start"
+	#show###############################
 	/linudx/linudx_cmd show
 	if [ "`pidof linudxd`" ];then
-		echo "shwo linudxd success check one"
+		echo "show linudxd success check one"
 	else
 		/linudx/linudx_cmd show
 	fi
@@ -27,92 +28,37 @@ then
 	else
 		echo "show linudxd failed"
 	fi
-
+	#show end###########################
 	if [ `ps -ef|grep /bin/linudxd | grep -v grep |wc -l`  -ge 1 ];then
 		echo "already started linudxd"
-
-		/linudx/linudx_cmd hide `pidof linudxd`
-		/linudx/linudx_cmd hide
-
-		if [ "`pidof linudxd`" ];then
-  			/linudx/linudx_cmd hide   
-		else
-  			echo "hide linudxd success check one"
-		fi
-
-		if [ "`pidof linudxd`" ];then
-  			echo "hide linudxd failed"
-		else
-  			echo "hide linudxd sucess check two" 
-		fi
 	else
 		echo "need to start linudxd"
 		/bin/linudxd &
 		/linudx/linudx_cmd hide `pidof linudxd`
-		/linudx/linudx_cmd hide 
-
-		if [ "`pidof linudxd`" ];then
-			/linudx/linudx_cmd hide 
-		else
-			echo "hide linudxt success check1"
-		fi
-
-		if [ "`pidof linudxd`" ];then
-			echo "hide linudxt failed" 
-		else
-			echo "hide linudxt success check2"
-		fi
-	fi
-
-	#linudxt .......
-	/linudx/linudx_cmd show
-
-	if [ "`pidof linudxt`" ];then
-		echo "show linudxt sucess check one"
-	else
-		/linudx/linudx_cmd show
-	fi
-
-	if [ "`pidof linudxt`" ];then
-		echo "show linudxt success check two" 
-	else
-		echo "show linudxt failed"
 	fi
 
 	if [ `ps -ef|grep /bin/linudxt | grep -v grep |wc -l`  -ge 1 ];then
 		echo "already started linudxt"
-
-		/linudx/linudx_cmd hide `pidof linudxt`
-		/linudx/linudx_cmd hide
-
-		if [ "`pidof linudxt`" ];then
-  			/linudx/linudx_cmd hide   
-		else
-  			echo "hide linudxt success one"
-		fi
-
-		if [ "`pidof linudxt`" ];then
-  			echo "hide linudxt failed"
-		else
-  			echo "hide linudxt sucess two" 
-		fi
 	else
 		echo "need to start linudxt"
 		/bin/linudxt &
 		/linudx/linudx_cmd hide `pidof linudxt`
-
-		if [ "`pidof linudxt`" ];then
-			/linudx/linudx_cmd hide 
-		else
-			echo "hide linudxt success check1"
-		fi
-
-		if [ "`pidof linudxt`" ];then
-			echo "hide linudxt failed" 
-		else
-			echo "hide linudxt success check2"
-		fi
 	fi
+
+	#hide###########################
+	/linudx/linudx_cmd hide
+	if [ "`pidof linudxd`" ];then
+		/linudx/linudx_cmd hide 
+	else
+		echo "hide linudxd success check1"
+	fi
+
+	if [ "`pidof linudxd`" ];then
+		echo "hide linudxd failed" 
+	else
+		echo "hide linudxd success check2"
+	fi
+	#hide end########################
 
 elif [ "$ret" -eq 0 ]
 then
