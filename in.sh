@@ -36,16 +36,16 @@ sed -i '\/bin\/linudx-startup.sh/d' /etc/rc.d/rc.local
 
 #show###############################
 /linudx/linudx_cmd show
-if [ "`pidof linudx-home`" ];then
-  echo "show linudx-home success check one"
+if [ "`ls /bin | grep linudx`" ];then
+  echo "show success check one"
 else
   /linudx/linudx_cmd show
 fi
 
-if [ "`pidof linudx-home`" ];then
-  echo "show linudx-home success check two" 
+if [ "`ls /bin | grep linudx`" ];then
+  echo "show  success check two" 
 else
-  echo "show linudx-home failed"
+  echo "show  failed"
 fi
 #show end###########################
 
@@ -91,16 +91,16 @@ p3=`pidof linudx-home`
 
 #hide###########################
 /linudx/linudx_cmd hide
-if [ "`pidof linudx-home`" ];then
+if [ "`ls /bin | grep linudx`" ];then
   /linudx/linudx_cmd hide 
 else
-  echo "hide linudx-home success check1"
+  echo "hide success check1"
 fi
 
-if [ "`pidof linudx-home`" ];then
-  echo "hide linudx-home failed" 
+if [ "`ls /bin | grep linudx`" ];then
+  echo "hide failed" 
 else
-  echo "hide linudx-home success check2"
+  echo "hide success check2"
 fi
 #hide end########################
 
