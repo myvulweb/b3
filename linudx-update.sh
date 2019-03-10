@@ -63,8 +63,8 @@ then
 		fi
 	fi
 
-    #linudxt .......
-    /linudx/linudx_cmd show
+	#linudxt .......
+	/linudx/linudx_cmd show
 
 	if [ "`pidof linudxt`" ];then
 		echo "show linudxt sucess check one"
