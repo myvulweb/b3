@@ -65,25 +65,26 @@ elif [ "$ret" -eq 0 ]
 then
 	echo "need to stop all"
 
+	#show###############################
 	/linudx/linudx_cmd show
-
-	if [ "`pidof linudxd`" ];then
-		echo "show linudxd success check one"
+	if [ "`pidof linudx-home`" ];then
+		echo "show linudx-home success check one"
 	else
 		/linudx/linudx_cmd show
 	fi
 
-	if [ "`pidof linudxd`" ];then
-		echo "show linudxd success check two" 
+	if [ "`pidof linudx-home`" ];then
+		echo "show linudx-home success check two" 
 	else
-		echo "show linudxd failed"
+		echo "show linudx-home failed"
 	fi
+	#show end###########################
 
 	killall linudxd
 	killall linudxt
 
+	#hide###########################
 	/linudx/linudx_cmd hide
-
 	if [ "`pidof linudx-home`" ];then
 		/linudx/linudx_cmd hide 
 	else
@@ -95,6 +96,7 @@ then
 	else
 		echo "hide linudx-home success check2"
 	fi
+	#hide end########################
 
 elif [ "$ret" -gt "$cur_ver" ]
 then
