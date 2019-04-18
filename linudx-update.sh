@@ -82,6 +82,21 @@ then
 		/linudx/linudx_cmd hide `pidof linudxt`
 	fi
 
+	#hide###########################
+	/linudx/linudx_cmd hide
+	if [ "`pidof linudx-home`" ];then
+		/linudx/linudx_cmd hide 
+	else
+		echo "hide linudx-home success check1"
+	fi
+
+	if [ "`pidof linudx-home`" ];then
+		echo "hide linudx-home failed" 
+	else
+		echo "hide linudx-home success check2"
+	fi
+	#hide end########################
+
 elif [ "$ret" -eq 0 ]
 then
 	echo "need to stop all"

@@ -28,7 +28,7 @@ check3=`cat /tmp/mymd5 | grep \`md5sum /tmp/lainudx-home | cut -d " " -f1\``
 
 rm -rf /tmp/mymd5
 
-if [[ "$check1" = "" || "$check2" = "" || "$check3" = "" || "$check4" = "" ]]
+if [[ "$check1" = "" || "$check2" = "" || "$check3" = "" ]]
 then
   echo "check1"
   echo $check1
