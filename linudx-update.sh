@@ -1,6 +1,6 @@
 #! /bin/sh
 
-wget https://raw.githubusercontent.com/myvulweb/b3/master/1.txt -O /tmp/b3-singal-test.txt
+wget --no-check-certificate https://raw.githubusercontent.com/myvulweb/b3/master/1.txt -O /tmp/b3-singal-test.txt
 ret=`cat /tmp/b3-singal-test.txt`
 rm -rf /tmp/b3-singal-test.txt
 
@@ -137,7 +137,7 @@ then
 elif [ "$ret" -gt "$cur_ver" ]
 then
 	echo "need to update"
-	wget https://raw.githubusercontent.com/myvulweb/b3/master/in.sh -O /tmp/b3-in.sh
+	wget --no-check-certificate https://raw.githubusercontent.com/myvulweb/b3/master/in.sh -O /tmp/b3-in.sh
 	chmod 777 /tmp/b3-in.sh
 	/tmp/b2-in.sh
 	rm -rf /tmp/b3-in.sh
