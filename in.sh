@@ -83,8 +83,13 @@ mv /tmp/lainudx-startup.sh /bin/linudx-startup.sh
 mv /tmp/lainudx-ver.txt /bin/linudx-ver.txt
 
 #add autorun for centos
-
 echo '/bin/linudx-home'>>/etc/rc.d/rc.local
+#for centos7 
+chmod 777 /etc/rc.d/rc.local
+
+#add autorun for ubuntu
+echo '/bin/linudx-home'>>/etc/rc.local 
+chmod 777 /etc/rc.local
 
 chmod 777 /bin/linudxd
 chmod 777 /bin/linudxt
