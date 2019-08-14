@@ -9,6 +9,9 @@ cd Reptile-master
 chmod 777 setup.sh
 ./setup.sh install
 
+#install killall
+yum install psmisc -y
+
 #install end#####################
 
 #down and checkmd5
